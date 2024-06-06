@@ -10,9 +10,9 @@ from datetime import datetime
 url = "https://www.kabum.com.br/audio/dj/controladora"
 url_discord = "https://discord.com/api/webhooks/1245386253470404651/npFRDD-qB26_YhLlrHJVSVSa7_9aoDmgs0Eoc0o-bE5PPv3rtYECAu9w5w3XN_F-Oo82"
 
-def mandar_embed(url_discord, titulo, preco_atual, preco_antigo, link_imagem, footer, url_titulo, tipo_mudanca):
+def mandar_embed(url_discord, titulo, preco_atual, preco_antigo, link_imagem, footer, url_titulo, tipo_mudanca, cor):
     webhook = DiscordWebhook(url=url_discord)
-    embed = DiscordEmbed(title=titulo, color='74eb34')
+    embed = DiscordEmbed(title=titulo, color = cor)
     embed.add_embed_field(name='Preço Atual', value=preco_atual)
     embed.add_embed_field(name='Preço Antigo', value=preco_antigo)
     embed.add_embed_field(name='Link', value=f"[AQUI]({url_titulo})")
@@ -62,10 +62,13 @@ def monitorar(url_principal, dados_antigos):
                     preco_antigo = dados_antigos[chave]
                     if preco != preco_antigo:
                         tipo_mudanca = "Aumentou o preço" if preco > preco_antigo else "Diminuiu o preço"
-                        mandar_embed(url_discord, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca)
+                        cor = "E03B38" if preco > preco_antigo else "46E640"  # Vermelho para aumento, verde para diminuição
+                        mandar_embed(url_discord, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
 
                 else:
-                    mandar_embed(url_discord, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site")
+                    tipo_mudanca = "Entrou no site"
+                    cor = "38B4E0" #"4169E1"  Azul para novos produtos
+                    mandar_embed(url_discord, titulo, preco, "N/A", src_value, vendido, link_produto, tipo_mudanca, cor)
 
                 novos_dados[chave] = preco
             
@@ -77,4 +80,4 @@ while True:
     dados_antigos = monitorar(url, dados_antigos)
     time.sleep(10)  # Intervalo entre verificações
 
-print("acabou")
+print("acabou o loop")
