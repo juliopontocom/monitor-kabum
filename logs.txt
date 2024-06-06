@@ -85,4 +85,3 @@
 11:28:40 - Novo produto adicionado: Cadeira Gamer Husky Gaming Avalanche 900, Preto e Vermelho, Com Almofadas, Reclinável com Sistema Frog, Descanso de Braço 3D - HGMA083 - Preço: R$ 1.399,99
 11:28:44 - Novo produto adicionado: Cadeira Gamer Mymax Mx9, Giratória, Preto/Prata - Preço: R$ 616,55
 11:28:47 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Zeta Black Blue - AGZETA-BK-BL - Preço: R$ 849
-testando gitignore
