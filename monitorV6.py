@@ -54,6 +54,12 @@ def fazer_requisicao(url, headers, tentativas=3, delay=5):
                 time.sleep(delay)
     raise Exception(f"Falha ao acessar {url} após {tentativas} tentativas.")
 
+def extrair_preco(preco_str):
+    # Remove 'R$', pontos e vírgulas para converter para float
+    preco_numerico = re.sub(r'[^\d,]', '', preco_str)
+    preco_numerico = preco_numerico.replace(',', '.')
+    return float(preco_numerico)
+
 def monitorar(url_principal, dados_antigos):
     headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
                               (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"}
@@ -106,15 +112,19 @@ def monitorar(url_principal, dados_antigos):
                 chave = f"{titulo}|{link_produto}"
                 preco_antigo = dados_antigos.get(chave, None)
                 url_discord = webhooks[url_principal]  # Pega o webhook apropriado para a URL
-                if preco_antigo and preco != preco_antigo:
-                    tipo_mudanca, cor = determinar_mudanca(preco, preco_antigo)
-                    mandar_embed(url_discord, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
-                    logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo})")
-                    time.sleep(2)
+                
+                preco_num_atual = extrair_preco(preco)
+                if preco_antigo:
+                    preco_num_antigo = extrair_preco(preco_antigo)
+                    if preco_num_atual != preco_num_antigo:
+                        tipo_mudanca, cor = determinar_mudanca(preco_num_atual, preco_num_antigo)
+                        mandar_embed(url_discord, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
+                        logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo})")
+                        time.sleep(1)
                 elif preco_antigo is None:
                     mandar_embed(url_discord, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1")
                     logging.info(f"Novo produto adicionado: {titulo} - Preço: {preco}")
-                    time.sleep(2)
+                    time.sleep(1)
                 novos_dados[chave] = preco
     dados_antigos[url_principal] = novos_dados
     return novos_dados
@@ -124,6 +134,8 @@ def determinar_mudanca(preco, preco_antigo):
         return "Aumentou o preço", "FF6347"
     elif preco < preco_antigo:
         return "Diminuiu o preço", "90EE90"
+    else:
+        return "Preço inalterado", "FFFFFF"  # Caso especial para preços iguais
 
 while True:
     for url in urls:
