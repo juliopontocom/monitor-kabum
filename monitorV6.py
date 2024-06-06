@@ -55,8 +55,12 @@ def fazer_requisicao(url, headers, tentativas=3, delay=5):
     raise Exception(f"Falha ao acessar {url} após {tentativas} tentativas.")
 
 def extrair_preco(preco_str):
+    if not preco_str:
+        raise ValueError("Preço não encontrado ou string de preço vazia")
     # Remove 'R$', pontos e vírgulas para converter para float
     preco_numerico = re.sub(r'[^\d,]', '', preco_str)
+    if not preco_numerico:
+        raise ValueError("Preço não encontrado ou string de preço vazia")
     preco_numerico = preco_numerico.replace(',', '.')
     return float(preco_numerico)
 
@@ -103,7 +107,12 @@ def monitorar(url_principal, dados_antigos):
 
                 sopa_produto = BeautifulSoup(site_produto.content, 'html.parser')
                 preco_elemento = sopa_produto.find('h4', class_=re.compile('finalPrice'))
-                preco = preco_elemento.get_text().strip() if preco_elemento else "Preço não encontrado"
+                preco = preco_elemento.get_text().strip() if preco_elemento else None
+                
+                if not preco:
+                    logging.warning(f"Preço não encontrado para o produto: {titulo}")
+                    continue
+
                 vendido_elemento = sopa_produto.find('div', class_=re.compile('generalInfo'))
                 vendido = vendido_elemento.get_text().strip().split('|')[0] if vendido_elemento else "Informação de venda não encontrada"
                 agora = datetime.now()
@@ -113,19 +122,23 @@ def monitorar(url_principal, dados_antigos):
                 preco_antigo = dados_antigos.get(chave, None)
                 url_discord = webhooks[url_principal]  # Pega o webhook apropriado para a URL
                 
-                preco_num_atual = extrair_preco(preco)
-                if preco_antigo:
-                    preco_num_antigo = extrair_preco(preco_antigo)
-                    if preco_num_atual != preco_num_antigo:
-                        tipo_mudanca, cor = determinar_mudanca(preco_num_atual, preco_num_antigo)
-                        mandar_embed(url_discord, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
-                        logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo})")
+                try:
+                    preco_num_atual = extrair_preco(preco)
+                    if preco_antigo:
+                        preco_num_antigo = extrair_preco(preco_antigo)
+                        if preco_num_atual != preco_num_antigo:
+                            tipo_mudanca, cor = determinar_mudanca(preco_num_atual, preco_num_antigo)
+                            mandar_embed(url_discord, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
+                            logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo})")
+                            time.sleep(1)
+                    elif preco_antigo is None:
+                        mandar_embed(url_discord, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1")
+                        logging.info(f"Novo produto adicionado: {titulo} - Preço: {preco}")
                         time.sleep(1)
-                elif preco_antigo is None:
-                    mandar_embed(url_discord, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1")
-                    logging.info(f"Novo produto adicionado: {titulo} - Preço: {preco}")
-                    time.sleep(1)
-                novos_dados[chave] = preco
+                    novos_dados[chave] = preco
+                except ValueError as e:
+                    logging.error(f"Erro ao processar o preço para o produto {titulo}: {e}")
+
     dados_antigos[url_principal] = novos_dados
     return novos_dados
 
