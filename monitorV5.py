@@ -5,17 +5,16 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 import math
 import time
 from datetime import datetime
+import json
 
-urls = [
-    "https://www.kabum.com.br/audio/dj/controladora",
-    "https://www.kabum.com.br/celular-smartphone/wearables/kabum-smart"
-]
+# Função para carregar URLs e webhooks de um arquivo JSON
+def carregar_webhooks(arquivo_json):
+    with open(arquivo_json, 'r') as f:
+        return json.load(f)
 
-# Adicione um dicionário para mapear cada URL ao seu respectivo webhook
-webhooks = {
-    "https://www.kabum.com.br/audio/dj/controladora": "https://discord.com/api/webhooks/1245386253470404651/npFRDD-qB26_YhLlrHJVSVSa7_9aoDmgs0Eoc0o-bE5PPv3rtYECAu9w5w3XN_F-Oo82",
-    "https://www.kabum.com.br/celular-smartphone/wearables/kabum-smart": "https://discord.com/api/webhooks/1248137714591600660/gdPmBxaiVV3Uyf-sur5RDpM3tbSEhPA-TaIjCbppcQ2aN28DaiygZsyF6bPylrNddOjT"
-}
+# Carregar o dicionário de URLs e webhooks
+webhooks = carregar_webhooks('./webhook.json')
+urls = list(webhooks.keys())
 
 dados_antigos = {url: {} for url in urls}
 
