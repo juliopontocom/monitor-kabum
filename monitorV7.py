@@ -30,6 +30,7 @@ webhooks = carregar_webhooks('./webhook.json')
 urls = list(webhooks.keys())
 
 dados_antigos = {url: {} for url in urls}
+dados_antigos_lock = threading.Lock()
 
 def mandar_embed(url_discord, titulo, preco_atual, preco_antigo, link_imagem, footer, url_titulo, tipo_mudanca, cor):
     webhook = DiscordWebhook(url=url_discord)
@@ -66,10 +67,11 @@ def extrair_preco(preco_str):
     preco_numerico = preco_numerico.replace(',', '.')
     return float(preco_numerico)
 
-def monitorar(url_principal, dados_antigos):
+def monitorar(url_principal):
+    global dados_antigos
+    headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
+                              (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"}
     while True:
-        headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
-                                  (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"}
         try:
             response_principal = fazer_requisicao(url_principal, headers)
         except Exception as e:
@@ -123,7 +125,10 @@ def monitorar(url_principal, dados_antigos):
                     hora_formatada = agora.strftime('%H:%M:%S')
                     vendido = vendido + f'• {hora_formatada}'
                     chave = f"{titulo}|{link_produto}"
-                    preco_antigo = dados_antigos.get(chave, None)
+                    
+                    with dados_antigos_lock:
+                        preco_antigo = dados_antigos[url_principal].get(chave, None)
+                    
                     url_discord = webhooks[url_principal]  # Pega o webhook apropriado para a URL
                     
                     try:
@@ -141,7 +146,8 @@ def monitorar(url_principal, dados_antigos):
                     except ValueError as e:
                         logging.error(f"Erro ao processar o preço para o produto {titulo}: {e}")
 
-        dados_antigos[url_principal] = novos_dados
+        with dados_antigos_lock:
+            dados_antigos[url_principal] = novos_dados
         time.sleep(15)  # Aumentar o tempo de espera entre os ciclos para reduzir a carga
 
 def determinar_mudanca(preco, preco_antigo):
@@ -155,7 +161,7 @@ def determinar_mudanca(preco, preco_antigo):
 # Criação e inicialização dos threads
 threads = []
 for url in urls:
-    t = threading.Thread(target=monitorar, args=(url, dados_antigos[url]))
+    t = threading.Thread(target=monitorar, args=(url,))
     t.start()
     threads.append(t)
 
