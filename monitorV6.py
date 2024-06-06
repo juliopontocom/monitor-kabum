@@ -41,6 +41,7 @@ def mandar_embed(url_discord, titulo, preco_atual, preco_antigo, link_imagem, fo
     embed.set_footer(text=footer)
     webhook.add_embed(embed)
     webhook.execute()
+    time.sleep(1)
 
 def fazer_requisicao(url, headers, tentativas=3, delay=5):
     for i in range(tentativas):
@@ -130,11 +131,9 @@ def monitorar(url_principal, dados_antigos):
                             tipo_mudanca, cor = determinar_mudanca(preco_num_atual, preco_num_antigo)
                             mandar_embed(url_discord, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
                             logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo})")
-                            time.sleep(1)
                     elif preco_antigo is None:
                         mandar_embed(url_discord, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1")
                         logging.info(f"Novo produto adicionado: {titulo} - Preço: {preco}")
-                        time.sleep(1)
                     novos_dados[chave] = preco
                 except ValueError as e:
                     logging.error(f"Erro ao processar o preço para o produto {titulo}: {e}")
