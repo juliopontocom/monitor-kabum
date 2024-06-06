@@ -29,8 +29,6 @@ def mandar_embed(url_discord, titulo, preco_atual, preco_antigo, link_imagem, fo
 
 
 
-
-
 # metodo que monitora os produtos
 def monitorar(url_principal):
 
@@ -78,11 +76,3 @@ def monitorar(url_principal):
 
 
 monitorar(url)
-
-
-        
-
-
-
-
-
