@@ -1,0 +1,87 @@
+11:23:54 - Novo produto adicionado: Cadeira Gamer KBM! GAMING CG200, Preto - Pistão Classe 3, Almofadas cabeça e lombar - KGCG200PT - Preço: R$ 469,90
+11:23:58 - Novo produto adicionado: Cadeira Gamer KBM! GAMING Tempest CG500 Preta Com Almofadas, Descanso Para Pernas Retrátil, Reclinável - KGCG500PT - Preço: R$ 699,90
+11:24:01 - Novo produto adicionado: Cadeira Gamer KBM! GAMING Tempest CG600, Cinza Claro, Com Almofadas, Descanso Para Pernas Retrátil, Reclinável - KGCG600CZ - Preço: R$ 789,99
+11:24:04 - Novo produto adicionado: Cadeira Gamer KBM! GAMING Tempest CG600, Branco, Com Almofadas, Descanso Para Pernas Retrátil, Reclinável - KGCG600BR - Preço: R$ 789,99
+11:24:07 - Novo produto adicionado: Cadeira Gamer KBM! GAMING Tempest CG600, Preta e Vermelho, Com Almofadas, Descanso Para Pernas Retrátil, Reclinável - KGCG600PTVM - Preço: R$ 789,99
+11:24:11 - Novo produto adicionado: Cadeira Gamer KBM! GAMING Tempest CG600, Preta, Com Almofadas, Descanso Para Pernas Retrátil, Reclinável - KGCG600PT - Preço: R$ 789,99
+11:24:14 - Novo produto adicionado: Cadeira Gamer Vermelha Prizi - Jx-1039r - Preço: R$ 405,90
+11:24:17 - Novo produto adicionado: Cadeira Gamer KBM! GAMING Tempest CG500, Preta e Branco, Com Almofadas, Descanso Para Pernas Retrátil, Reclinável - KGCG500PTBR - Preço: R$ 649,90
+11:24:21 - Novo produto adicionado: Cadeira Gamer Prizi Canvas, Até 120Kg, Com Almofadas, Preta - Preço: R$ 405,90
+11:24:24 - Novo produto adicionado: Cadeira Gamer KBM! GAMING CG200, Preto e Branco - Pistão Classe 3, Almofadas cabeça e lombar - KGCG200PTBR - Preço: R$ 469,90
+11:24:28 - Novo produto adicionado: Cadeira Gamer KBM! GAMING Tempest CG500 Preta e Roxa, Com Almofadas, Descanso Para Pernas Retrátil, Reclinável - KGCG500PTRX - Preço: R$ 689,90
+11:24:31 - Novo produto adicionado: Cadeira Gamer Prizi, Amarela, Com Almofadas - JX-1039Y - Preço: R$ 405,90
+11:24:34 - Novo produto adicionado: Cadeira Gamer Corsair TC100 Relaxed Fabric, Até 120Kg, Com Almofadas, Reclinável, Cilindro de Gás Classe 4, Preto - CF-9010051-WW - Preço: R$ 999,99
+11:24:37 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Vega, Preto, Reclinável, com Almofadas, Cilindro de Gás Classe 4 - Preço: R$ 814,54
+11:24:41 - Novo produto adicionado: Cadeira Gamer KBM! GAMING Tempest CG500, Preta e Azul, Com Almofadas, Descanso Para Pernas Retrátil, Reclinável - KGCG500PTAZ - Preço: R$ 649,90
+11:24:44 - Novo produto adicionado: Cadeira Gamer Prizi Canvas, Até 120kG, Ajuste De Altura, Apoio Para Os Pés, Preta - Preço: R$ 405,90
+11:24:47 - Novo produto adicionado: Cadeira Gamer Prizi Jx-1039g, até 120 kg, com Almofadas para Pescoço e Lombar, Regulagem de altura, Verde - Preço: R$ 418,71
+11:24:50 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Nebula XL Fabric, Até 150 kg, Apoio de Braço 4D, Reclinável, Cinza - AGNEBULAXL - Preço: R$ 1.059,90
+11:24:54 - Novo produto adicionado: Cadeira Gamer Corsair TC100 Relaxed Fabric, Até 120Kg, Com Almofadas, Reclinável, Cilindro de Gás Classe 4, Preto e Cinza - CF-9010052-WW - Preço: R$ 999,99
+11:24:57 - Novo produto adicionado: Cadeira Gamer XT Racer Platinum W Series, Até 120kg, Com Almofadas, Reclinável, Descanso de Braço 3D, Preto - XTR-010 - Preço: R$ 1.044,90
+11:25:01 - Novo produto adicionado: Cadeira Gamer Fox Office Fox Racer, até 130kgs, com RGB e Iluminação LED, com almofadas, Reclinável, Preta - Preço: R$ 810,59
+11:25:05 - Novo produto adicionado: Cadeira Gamer XT Racer Platinum W Series, Até 120kg, Com Almofadas, Reclinável, Descanso de Braço 3D, Marrom - XTR-016 - Preço: R$ 1.044,90
+11:25:08 - Novo produto adicionado: Cadeira Gamer KBM! GAMING CG200, Preto e Vermelho - Pistão Classe 3, Almofadas cabeça e lombar - KGCG200PTVM - Preço: R$ 459,90
+11:25:11 - Novo produto adicionado: Cadeira Gamer Corsair T3 Rush 2023, Até 120Kg, Com Almofadas, Reclinável, Apoio de Braços 4D, Cinza e Preto - CF-9010056-WW - Preço: R$ 1.359,90
+11:25:15 - Novo produto adicionado: Cadeira Gamer Corsair TC200 Fabric, Até 120Kg, Apoio de Braços 4D, Almofadas, Reclinável, Cilindro de Gás Classe 4, Preto - CF-9010049-WW - Preço: R$ 1.429,90
+11:25:18 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Nebula Fabric, Até 150 kg, Apoio de Braço 4D, Reclinável, Cinza - AGNEBULA - Preço: R$ 1.199,99
+11:25:21 - Novo produto adicionado: Cadeira Gamer ThunderX3 TGC12, Até 120kg, com Almofadas, Reclinável, Preto - Preço: R$ 1.079,90
+11:25:25 - Novo produto adicionado: Cadeira Gamer Prizi Runner, Até 120Kg, Roxa - Preço: R$ 309,90
+11:25:28 - Novo produto adicionado: Cadeira Gamer Falcon, Cosmic, Preta - Preço: R$ 549,90
+11:25:32 - Novo produto adicionado: Cadeira Gamer Falcon, Meteora, Preta - Preço: R$ 479,90
+11:25:36 - Novo produto adicionado: Cadeira Gamer Corsair TC100 Relaxed Leatherette, Até 120Kg, Com Almofadas, Reclinável, Cilindro de Gás Classe 4, Preto - CF-9010050-WW - Preço: R$ 899,90
+11:25:40 - Novo produto adicionado: Cadeira Gamer ThunderX3 TGC12, Preto e Vermelho, Reclinável, com Almofadas, Cilindro de Gás Classe 4 - Preço: R$ 969,99
+11:25:43 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Vega, Preto e Vermelho, Reclinável, com Almofadas, Cilindro de Gás Classe 4 - Preço: R$ 659,90
+11:25:47 - Novo produto adicionado: Cadeira Gamer XT Racer Defender, Até 120kg, Com Almofadas, Reclinável, Descanso de Braço 3D, Preto - XTR-034 - Preço: R$ 824,90
+11:25:50 - Novo produto adicionado: Cadeira Gamer XT Racer Platinum W Series, Até 120kg, Com Almofadas, Reclinável, Descanso de Braço 3D, Off White - XTR-068 - Preço: R$ 1.044,90
+11:25:54 - Novo produto adicionado: Cadeira Gamer MX6, Giratória, Azul e Preto, Mymax - Preço: R$ 649,00
+11:25:57 - Novo produto adicionado: Cadeira Gamer Prizi Canvas, Verde - Preço: R$ 405,90
+11:26:01 - Novo produto adicionado: Cadeira Gamer Fortt Lípsia, Até 120Kg, Vermelha - Cgf002-v - Preço: R$ 249,90
+11:26:04 - Novo produto adicionado: Cadeira Gamer ThunderX3 TGC12, Até 120kg, Com Almofadas, Descanso de Braço 2D, Preto e Azul - Preço: R$ 969,90
+11:26:07 - Novo produto adicionado: Cadeira Gamer Vinik Rocket, 120kg, Ajuste de altura e inclinação Preto - CGR10PT - Preço: R$ 579,90
+11:26:12 - Novo produto adicionado: Cadeira Gamer XT Racer Speed Series, Até 120kg, Com Almofadas, Reclinável, Descanso de Braço 2D, Preto - XTS150 - Preço: R$ 899,99
+11:26:15 - Novo produto adicionado: Cadeira Gamer Fox Racer Zerda, Preto, Com Apoio De Pe - Preço: R$ 540,58
+11:26:18 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Vega, Preto e Azul, Reclinável, com Almofadas, Cilindro de Gás Classe 4 - Preço: R$ 659,90
+11:26:21 - Novo produto adicionado: Cadeira Gamer Vinik Rocket, 120kg, Ajuste de altura e inclinação Branco e Rosa - CGR10BRS - Preço: R$ 649,99
+11:26:25 - Novo produto adicionado: Cadeira Gamer XT Racer Speed Series, Até 120kg, Com Almofadas, Reclinável, Descanso de Braço 2D, Preto e Cinza - XTS130 - Preço: R$ 799,90
+11:26:28 - Novo produto adicionado: Cadeira Gamer Husky Gaming Snow, Preto e Verde, Cilindro de Gás Classe 4, Base em Metal, Roda em Nylon - HGMA018 - Preço: R$ 589,90
+11:26:31 - Novo produto adicionado: Cadeira Gamer Corsair T3 Rush 2023, Até 120Kg, Com Almofadas, Reclinável, Apoio de Braços 4D, Cinza e Branco - CF-9010058-WW - Preço: R$ 1.359,90
+11:26:35 - Novo produto adicionado: Cadeira Gamer DT3 Nero XL, Até 160Kg, Com Almofada, Descanso de Braço 4D, Graphite - 13639-2 - Preço: R$ 1.449,90
+11:26:38 - Novo produto adicionado: Cadeira Gamer DT3 Elise, Até 130 Kg, com Almofadas, Reclinável, Preto - 13436-7 - Preço: R$ 979,99
+11:26:41 - Novo produto adicionado: Cadeira Gamer PCYes Mad Racer V8 Turbo, Black - V8TBMADPT - Preço: R$ 1.039,90
+11:26:44 - Novo produto adicionado: Cadeira Gamer DT3 Elise Fabric, Até 130 Kg, Com Almofadas, Reclinável, Descanso de Braço 1D, Preto - 13443-5 - Preço: R$ 999,90
+11:26:48 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Zeta Preto, Reclinável, com Almofadas, Cilindro de Gás Classe 4 - AGZETA-BK - Preço: R$ 649,90
+11:26:52 - Novo produto adicionado: Cadeira Gamer Corsair TC200 Fabric, Até 120Kg, Apoio de Braços 4D, Almofadas, Reclinável, Cilindro Classe 4, Cinza e Branco - CF-9010048-WW - Preço: R$ 1.439,90
+11:26:55 - Novo produto adicionado: Cadeira Gamer Mx5, Giratoria, Branco e Rosa - Mymax - Preço: R$ 679,00
+11:26:58 - Novo produto adicionado: Cadeira Gamer Corsair T1 Race, Até 120Kg, Com Almofadas, Reclinável, Apoio de Braços 4D, Preto - CF-9010059-WW - Preço: R$ 1.129,90
+11:27:02 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Alegra Fabric Cinza - AGALEGRA-F-GRY - Preço: R$ 1.189,90
+11:27:05 - Novo produto adicionado: Cadeira Gamer XT Racer Platinum W Style, Até 120kg, Regulagem em três dimensões, Sistema Relax, Preto - XTR-070 - Preço: R$ 1.199,90
+11:27:09 - Novo produto adicionado: Cadeira Gamer Corsair T3 Rush 2023, Até 120Kg, Com Almofadas, Reclinável, Apoio de Braços 4D, Preto e Cinza - CF-9010057-WW - Preço: R$ 1.259,90
+11:27:12 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Nimbus, Até 125 kg, Apoio de Braço 4D, Reclinável, Preto e Vermelho - AGNIMBUSBKRED - Preço: R$ 999,99
+11:27:16 - Novo produto adicionado: Cadeira Gamer Husky Gaming Snow, Preto e Azul, Cilindro de Gás Classe 4, Base em Metal, Roda em Nylon - HSN-BB - Preço: R$ 589,90
+11:27:20 - Novo produto adicionado: Cadeira Gamer DT3 Romeo, Até 140 kg, Com Almofadas, Apoio de Braço 3D+, Reclinável, Preto - 13791-1 - Preço: R$ 1.099,99
+11:27:23 - Novo produto adicionado: Cadeira Gamer Mymax MX5, Até 150kg, Com Almofadas, Reclinável, Descanso de Braço 2D, Branco e Azul Marinho - MGCH-MX5/BLMR - Preço: R$ 664,90
+11:27:26 - Novo produto adicionado: Cadeira Gamer ThunderX3 EC3, Até 120 kg,  Preto - 67998 - Preço: R$ 979,90
+11:27:30 - Novo produto adicionado: Cadeira Gamer XT Racer Viking Series, Até 120 Kg, Com Almofadas, Reclinável, Descanso de Braço 3D, Preto - XTR-014 - Preço: R$ 899,90
+11:27:33 - Novo produto adicionado: Cadeira Gamer Mymax MX5, Até 150kg, Com Almofadas, Reclinável, Descanso de Braço 2D, Branco e Azul - MGCH-MX5/BLWH - Preço: R$ 679,90
+11:27:36 - Novo produto adicionado: Cadeira Gamer Stillus Ergonômica Com Apoio Para Os Pés - Rosa Chiclete - Preço: R$ 421,31
+11:27:39 - Novo produto adicionado: Cadeira Gamer XT Racer Speed Series, Até 120kg, Com Almofadas e Apoio de Pés, Reclinável, Descanso de Braço 2D, Preto - XTS190 - Preço: R$ 779,90
+11:27:43 - Novo produto adicionado: Cadeira Gamer Rise Mode Z5, Ângulo Ajustável, Braço 4D, Preto, Tecido - RM-CG-Z05-BK-FBC - Preço: R$ 959,90
+11:27:46 - Novo produto adicionado: Cadeira Gamer DT3sports Rhino, Até 200kg, Com Almofadas, Reclinável, Descanso de Braço 4D,  Preto - 11229-5 - Preço: R$ 2.419,90
+11:27:49 - Novo produto adicionado: Cadeira Noblechairs Hero TX Gaming Chair-anthracite - NBL-HRO-TX-ATC - Preço: R$ 2.189,99
+11:27:53 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Vega, Até 130Kg, Cilindro de Gás 4, Braço Ajustável, Preto e Verde - Preço: R$ 999,99
+11:27:56 - Novo produto adicionado: Cadeira Gamer XT Racer Viking Series, Até 120kg, Com Almofadas e Apoio de Pés, Reclinável, Descanso de Braço 3D, Preto e Branco - XTR-022 - Preço: R$ 959,90
+11:27:59 - Novo produto adicionado: Cadeira Gamer Mymax Mx5 ,Peso Suportado até 150Kg, Giratória, Preto - Preço: R$ 645,05
+11:28:02 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Nimbus, Até 125 kg, Apoio de Braço 4D, Reclinável, Branco e Preto - AGNIMBUSBWHT - Preço: R$ 999,99
+11:28:05 - Novo produto adicionado: Cadeira Gamer Draxen DN2, 150 kg, Altura Ajustáveis, Reclinação, com almofadas, Preto - Preço: R$ 616,55
+11:28:08 - Novo produto adicionado: Cadeira Gamer Mymax MX5, Até 150Kg, com Ajuste de altura, Giratória, Branco e Roxo - MGCH-MX5/PRWH - Preço: R$ 679,90
+11:28:11 - Novo produto adicionado: Cadeira Gamer XT Racer Viking Series, Até 120kg, Com Almofadas e Apoio de Pés, Reclinável, Descanso de Braço 3D, Preto - XTR-018 - Preço: R$ 959,90
+11:28:15 - Novo produto adicionado: Cadeira Gamer DT3 Nero Elite, Até 130 kg, Com Almofada, Reclinável, Descanso de Braço 4D, Cilindro de gás Classe 4, Cinza - 13542-5 - Preço: R$ 2.299,90
+11:28:18 - Novo produto adicionado: Cadeira Gamer XT Racer Speed Series, Até 120kg, Com Almofadas e Apoio de Pés, Reclinável, Descanso de Braço 2D, Preto e Cinza - XTS170 - Preço: R$ 779,90
+11:28:21 - Novo produto adicionado: Cadeira Gamer PCYes Mad Racer V8 Turbo, Green - V8TBMADVD - Preço: R$ 1.059,99
+11:28:25 - Novo produto adicionado: Cadeira Gamer Husky Gaming Hailstorm 900, Preto e Azul, Com Almofadas, Reclinável com Sistema Frog, Descanso de Braço 3D - HGMA088 - Preço: R$ 1.399,99
+11:28:28 - Novo produto adicionado: Cadeira Gamer Mymax MX5, Até 150kg, Com Almofadas, Reclinável, Descanso de Braço 2D, Preto e Branco - MGCH-MX5/WH - Preço: R$ 664,90
+11:28:34 - Novo produto adicionado: Cadeira Gamer Corsair TC200, Até 120Kg, Apoio de Braços 4D, Com almofadas, Reclinável, Cilindro de Gás Classe 4, Preto - CF-9010043-WW - Preço: R$ 1.459,99
+11:28:37 - Novo produto adicionado: Cadeira Gamer Elements Magna, até 150 kg, Ergonômica, De Tecido, Preto - Preço: R$ 1.838,32
+11:28:40 - Novo produto adicionado: Cadeira Gamer Husky Gaming Avalanche 900, Preto e Vermelho, Com Almofadas, Reclinável com Sistema Frog, Descanso de Braço 3D - HGMA083 - Preço: R$ 1.399,99
+11:28:44 - Novo produto adicionado: Cadeira Gamer Mymax Mx9, Giratória, Preto/Prata - Preço: R$ 616,55
+11:28:47 - Novo produto adicionado: Cadeira Gamer Alpha Gamer Zeta Black Blue - AGZETA-BK-BL - Preço: R$ 849,99

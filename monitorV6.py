@@ -8,8 +8,16 @@ from datetime import datetime
 import json
 import logging
 
-# Configurar logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Configuração do logging para registrar em um arquivo logs.txt
+log_filename = 'logs.txt'
+open(log_filename, 'w').close()  # Limpa o conteúdo do arquivo no início
+
+logging.basicConfig(
+    filename=log_filename,
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s',
+    datefmt='%H:%M:%S'
+)
 
 # Função para carregar URLs e webhooks de um arquivo JSON
 def carregar_webhooks(arquivo_json):
@@ -49,7 +57,12 @@ def fazer_requisicao(url, headers, tentativas=3, delay=5):
 def monitorar(url_principal, dados_antigos):
     headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
                               (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"}
-    response_principal = fazer_requisicao(url_principal, headers)
+    try:
+        response_principal = fazer_requisicao(url_principal, headers)
+    except Exception as e:
+        logging.error(f"Erro ao acessar a URL principal {url_principal}: {e}")
+        return dados_antigos
+
     sopa_principal = BeautifulSoup(response_principal.content, 'html.parser')
     qtd_itens = sopa_principal.find('div', id='listingCount').get_text().strip()
     index = qtd_itens.find(' ')
@@ -59,7 +72,12 @@ def monitorar(url_principal, dados_antigos):
 
     for i in range(1, ultima_pagina + 1):
         url_pag = f'{url_principal}?page_number={i}&page_size=20&facet_filters=&sort=most_searched'
-        response_pag = fazer_requisicao(url_pag, headers)
+        try:
+            response_pag = fazer_requisicao(url_pag, headers)
+        except Exception as e:
+            logging.error(f"Erro ao acessar a página {url_pag}: {e}")
+            continue
+
         sopa_pag = BeautifulSoup(response_pag.content, 'html.parser')
         produtos = sopa_pag.findAll('article', class_=re.compile('productCard'))
 
@@ -91,9 +109,11 @@ def monitorar(url_principal, dados_antigos):
                 if preco_antigo and preco != preco_antigo:
                     tipo_mudanca, cor = determinar_mudanca(preco, preco_antigo)
                     mandar_embed(url_discord, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
-                    time.sleep(2) 
+                    logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo})")
+                    time.sleep(2)
                 elif preco_antigo is None:
                     mandar_embed(url_discord, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1")
+                    logging.info(f"Novo produto adicionado: {titulo} - Preço: {preco}")
                     time.sleep(2)
                 novos_dados[chave] = preco
     dados_antigos[url_principal] = novos_dados
@@ -111,4 +131,4 @@ while True:
             dados_antigos[url] = monitorar(url, dados_antigos[url])  # Passa e atualiza os dados antigos corretamente
         except Exception as e:
             logging.error(f"Erro ao monitorar a URL {url}: {e}")
-        time.sleep(300)  # Aumentar o tempo de espera entre os ciclos para reduzir a carga
+        time.sleep(15)  # Aumentar o tempo de espera entre os ciclos para reduzir a carga
