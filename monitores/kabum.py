@@ -5,29 +5,16 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 import math
 import time
 from datetime import datetime
-import json
 import logging
-import threading
 
-# Configuração do logging para registrar em um arquivo logs.txt
-log_filename = 'logs.txt'
-open(log_filename, 'w').close()  # Limpa o conteúdo do arquivo no início
-
-logging.basicConfig(
-    filename=log_filename,
-    level=logging.INFO,
-    format='%(asctime)s - %(message)s',
-    datefmt='%H:%M:%S'
-)
-
-# Função para carregar URLs e webhooks de um arquivo JSON
-def carregar_webhooks(arquivo_json):
-    with open(arquivo_json, 'r') as f:
-        return json.load(f)
-
-# Carregar o dicionário de URLs e webhooks
-webhooks = carregar_webhooks('./webhook.json')
-urls = list(webhooks.keys())
+def configurar_logging(log_filename):
+    logging.basicConfig(
+        filename=log_filename,
+        level=logging.INFO,
+        format='%(asctime)s - %(message)s',
+        datefmt='%H:%M:%S'
+    )
+    open(log_filename, 'w').close()  # Limpa o conteúdo do arquivo no início
 
 def mandar_embed(url_discord, titulo, preco_atual, preco_antigo, link_imagem, footer, url_titulo, tipo_mudanca, cor):
     webhook = DiscordWebhook(url=url_discord)
@@ -46,7 +33,7 @@ def fazer_requisicao(url, headers, tentativas=3, delay=5):
     for i in range(tentativas):
         try:
             response = requests.get(url, headers=headers)
-            response.raise_for_status()  # Levanta um erro para status HTTP ruins
+            response.raise_for_status()
             return response
         except requests.exceptions.RequestException as e:
             logging.warning(f"Tentativa {i + 1} falhou: {e}")
@@ -57,14 +44,14 @@ def fazer_requisicao(url, headers, tentativas=3, delay=5):
 def extrair_preco(preco_str):
     if not preco_str:
         raise ValueError("Preço não encontrado ou string de preço vazia")
-    # Remove 'R$', pontos e vírgulas para converter para float
     preco_numerico = re.sub(r'[^\d,]', '', preco_str)
     if not preco_numerico:
         raise ValueError("Preço não encontrado ou string de preço vazia")
     preco_numerico = preco_numerico.replace(',', '.')
     return float(preco_numerico)
 
-def monitorar(url_principal, dados_antigos):
+def monitorar(url_principal, dados_antigos, webhook, log_filename):
+    configurar_logging(log_filename)
     headers = {'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \
                               (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"}
     while True:
@@ -122,7 +109,6 @@ def monitorar(url_principal, dados_antigos):
                     vendido = vendido + f'• {hora_formatada}'
                     chave = f"{titulo}|{link_produto}"
                     preco_antigo = dados_antigos.get(chave, None)
-                    url_discord = webhooks[url_principal]  # Pega o webhook apropriado para a URL
                     
                     try:
                         preco_num_atual = extrair_preco(preco)
@@ -130,10 +116,10 @@ def monitorar(url_principal, dados_antigos):
                             preco_num_antigo = extrair_preco(preco_antigo)
                             if preco_num_atual != preco_num_antigo:
                                 tipo_mudanca, cor = determinar_mudanca(preco_num_atual, preco_num_antigo)
-                                mandar_embed(url_discord, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
+                                mandar_embed(webhook, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
                                 logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo})")
                         elif preco_antigo is None:
-                            mandar_embed(url_discord, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1")
+                            mandar_embed(webhook, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1")
                             logging.info(f"Novo produto adicionado: {titulo} - Preço: {preco}")
                         novos_dados[chave] = preco
                     except ValueError as e:
@@ -149,18 +135,3 @@ def determinar_mudanca(preco, preco_antigo):
         return "Diminuiu o preço", "90EE90"
     else:
         return "Preço inalterado", "FFFFFF"  # Caso especial para preços iguais
-
-def iniciar_monitoramento(url):
-    dados_antigos = {}
-    monitorar(url, dados_antigos)
-
-# Criação e inicialização dos threads
-threads = []
-for url in urls:
-    t = threading.Thread(target=iniciar_monitoramento, args=(url,))
-    t.start()
-    threads.append(t)
-
-# Aguarda a conclusão de todos os threads
-for t in threads:
-    t.join()

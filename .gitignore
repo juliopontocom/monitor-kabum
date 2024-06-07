@@ -1,1 +1,18 @@
-logs.txt
+# Ignorar arquivos de log
+logs/*.txt
+
+# Ignorar arquivos de configuração locais (opcional)
+config/*.json
+
+# Ignorar pastas de cache do Python
+__pycache__/
+monitores/__pycache__/
+
+# Ignorar outros arquivos e pastas gerados pelo Python
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar ambientes virtuais
+venv/
+env/
