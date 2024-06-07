@@ -1,5 +1,5 @@
 # Ignorar arquivos de log
-logs/*.txt
+#logs/*.txt
 
 
 # Ignorar pastas de cache do Python
