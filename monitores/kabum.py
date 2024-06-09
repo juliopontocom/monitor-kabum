@@ -7,6 +7,9 @@ import time
 from datetime import datetime
 import logging
 
+# URL do webhook para produtos com desconto maior que 10%
+DISCOUNT_WEBHOOK_URL = "https://discord.com/api/webhooks/1249219798156443669/tubBeTEIT2QRRSF8uc1NFqpYipjFqn8VDOmuXWiWxmZX14QL9_7BNa35eC3xLnQVD_0t"
+
 def configurar_logging(log_filename):
     logging.basicConfig(
         filename=log_filename,
@@ -125,6 +128,10 @@ def monitorar(url_principal, dados_antigos, webhook, log_filename):
                                 tipo_mudanca, cor = determinar_mudanca(preco_num_atual, preco_num_antigo)
                                 diferenca = calcular_diferenca(preco_num_atual, preco_num_antigo)
                                 mandar_embed(webhook, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor, diferenca)
+                                
+                                if diferenca <= -10:
+                                    mandar_embed(DISCOUNT_WEBHOOK_URL, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor, diferenca)
+                                
                                 logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo}) - Diferença: {diferenca:.2f}%")
                         elif preco_antigo is None:
                             mandar_embed(webhook, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1", 0)
