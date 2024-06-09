@@ -31,7 +31,7 @@ def mandar_embed(url_discord, titulo, preco_atual, preco_antigo, link_imagem, fo
     embed.set_footer(text=footer)
     webhook.add_embed(embed)
     webhook.execute()
-    time.sleep(1)
+    time.sleep(1.5)
 
 def fazer_requisicao(url, headers, tentativas=3, delay=5):
     for i in range(tentativas):
@@ -141,7 +141,7 @@ def monitorar(url_principal, dados_antigos, webhook, log_filename):
                         logging.error(f"Erro ao processar o preço para o produto {titulo}: {e}")
 
         dados_antigos.update(novos_dados)
-        time.sleep(15)  # Aumentar o tempo de espera entre os ciclos para reduzir a carga
+        time.sleep(50)  # Aumentar o tempo de espera entre os ciclos para reduzir a carga
 
 def determinar_mudanca(preco, preco_antigo):
     if preco > preco_antigo:
