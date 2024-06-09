@@ -16,12 +16,13 @@ def configurar_logging(log_filename):
     )
     open(log_filename, 'w').close()  # Limpa o conteúdo do arquivo no início
 
-def mandar_embed(url_discord, titulo, preco_atual, preco_antigo, link_imagem, footer, url_titulo, tipo_mudanca, cor):
+def mandar_embed(url_discord, titulo, preco_atual, preco_antigo, link_imagem, footer, url_titulo, tipo_mudanca, cor, diferenca):
     webhook = DiscordWebhook(url=url_discord)
     embed = DiscordEmbed(title=titulo, color=cor)
     embed.set_author(name=tipo_mudanca)
     embed.add_embed_field(name='Preço Atual', value=preco_atual)
     embed.add_embed_field(name='Preço Antigo', value=preco_antigo)
+    embed.add_embed_field(name='Diferença', value=f'{diferenca:.2f}%')
     embed.add_embed_field(name='Link', value=f"[AQUI]({url_titulo})")
     embed.set_thumbnail(url=link_imagem)
     embed.set_footer(text=footer)
@@ -49,6 +50,12 @@ def extrair_preco(preco_str):
         raise ValueError("Preço não encontrado ou string de preço vazia")
     preco_numerico = preco_numerico.replace(',', '.')
     return float(preco_numerico)
+
+def calcular_diferenca(preco_atual, preco_antigo):
+    if preco_antigo == 0:
+        return 0
+    diferenca = ((preco_atual - preco_antigo) / preco_antigo) * 100
+    return diferenca
 
 def monitorar(url_principal, dados_antigos, webhook, log_filename):
     configurar_logging(log_filename)
@@ -116,11 +123,12 @@ def monitorar(url_principal, dados_antigos, webhook, log_filename):
                             preco_num_antigo = extrair_preco(preco_antigo)
                             if preco_num_atual != preco_num_antigo:
                                 tipo_mudanca, cor = determinar_mudanca(preco_num_atual, preco_num_antigo)
-                                mandar_embed(webhook, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor)
-                                logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo})")
+                                diferenca = calcular_diferenca(preco_num_atual, preco_num_antigo)
+                                mandar_embed(webhook, titulo, preco, preco_antigo, src_value, vendido, link_produto, tipo_mudanca, cor, diferenca)
+                                logging.info(f"Produto atualizado: {titulo} - Preço: {preco} (Antigo: {preco_antigo}) - Diferença: {diferenca:.2f}%")
                         elif preco_antigo is None:
-                            mandar_embed(webhook, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1")
-                            logging.info(f"Novo produto adicionado: {titulo} - Preço: {preco}")
+                            mandar_embed(webhook, titulo, preco, "N/A", src_value, vendido, link_produto, "Entrou no site", "4169E1", 0)
+                            logging.info(f"Novo produto adicionado: {titulo} - Preço: {preco} - Diferença: 0%")
                         novos_dados[chave] = preco
                     except ValueError as e:
                         logging.error(f"Erro ao processar o preço para o produto {titulo}: {e}")
